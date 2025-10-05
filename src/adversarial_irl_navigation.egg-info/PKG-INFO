@@ -1,0 +1,157 @@
+Metadata-Version: 2.4
+Name: adversarial-irl-navigation
+Version: 1.0.0
+Summary: Inverse Reinforcement Learning with Adversarial Multimodal Data for Autonomous Navigation
+Home-page: https://github.com/example/adversarial-irl-navigation
+Author: AI Research Team
+Author-email: research@example.com
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch>=1.12.0
+Requires-Dist: torchvision>=0.13.0
+Requires-Dist: numpy>=1.21.0
+Requires-Dist: opencv-python>=4.6.0
+Requires-Dist: gymnasium>=0.26.0
+Requires-Dist: matplotlib>=3.5.0
+Requires-Dist: seaborn>=0.11.0
+Requires-Dist: tensorboard>=2.8.0
+Requires-Dist: wandb>=0.12.0
+Requires-Dist: scikit-learn>=1.1.0
+Requires-Dist: scipy>=1.8.0
+Requires-Dist: pillow>=9.0.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: tqdm>=4.64.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=3.0.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: isort>=5.10.0; extra == "dev"
+Requires-Dist: flake8>=4.0.0; extra == "dev"
+Requires-Dist: mypy>=0.950; extra == "dev"
+Provides-Extra: sim
+Requires-Dist: carla>=0.9.5; extra == "sim"
+Requires-Dist: msgpack-rpc-python>=0.4.1; extra == "sim"
+Requires-Dist: msgpack>=1.0.0; extra == "sim"
+Provides-Extra: pointcloud
+Requires-Dist: open3d>=0.15.0; extra == "pointcloud"
+Provides-Extra: ros
+Requires-Dist: rospkg>=1.3.0; extra == "ros"
+Provides-Extra: wandb
+Requires-Dist: wandb>=0.12.0; extra == "wandb"
+Provides-Extra: all
+Requires-Dist: carla>=0.9.5; extra == "all"
+Requires-Dist: msgpack-rpc-python>=0.4.1; extra == "all"
+Requires-Dist: msgpack>=1.0.0; extra == "all"
+Requires-Dist: open3d>=0.15.0; extra == "all"
+Requires-Dist: rospkg>=1.3.0; extra == "all"
+Requires-Dist: wandb>=0.12.0; extra == "all"
+Requires-Dist: pytest>=7.0.0; extra == "all"
+Requires-Dist: pytest-cov>=3.0.0; extra == "all"
+Requires-Dist: black>=22.0.0; extra == "all"
+Requires-Dist: isort>=5.10.0; extra == "all"
+Requires-Dist: flake8>=4.0.0; extra == "all"
+Requires-Dist: mypy>=0.950; extra == "all"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Inverse Reinforcement Learning with Adversarial Multimodal Data for Autonomous Navigation
+
+## Overview
+
+This project implements an advanced autonomous navigation system that combines Inverse Reinforcement Learning (IRL) with adversarial training on multimodal sensor data. The system learns optimal driving behaviors from expert demonstrations while being robust to adversarial attacks and sensor noise.
+
+## Key Features
+
+- **Inverse Reinforcement Learning**: Learn reward functions from expert driving demonstrations
+- **Adversarial Training**: Robust learning against adversarial perturbations
+- **Multimodal Fusion**: Integration of camera, LiDAR, radar, and GPS data
+- **Real-time Navigation**: Efficient path planning and control
+- **Safety Mechanisms**: Built-in safety checks and fallback systems
+
+## Architecture
+
+```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   Sensor Data   │────│  Multimodal      │────│   IRL Agent     │
+│ (Cam/LiDAR/GPS) │    │     Fusion       │    │                 │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+         │                        │                       │
+         │              ┌──────────────────┐              │
+         └──────────────│  Adversarial     │──────────────┘
+                        │    Training      │
+                        └──────────────────┘
+                                 │
+                        ┌──────────────────┐
+                        │   Navigation     │
+                        │    Controller    │
+                        └──────────────────┘
+```
+
+## Installation
+
+```bash
+pip install -r requirements.txt
+```
+
+## Quick Start
+
+```bash
+# Train the IRL model
+python src/training/train_irl.py --config configs/irl_config.yaml
+
+# Run adversarial training
+python src/training/adversarial_training.py --config configs/adversarial_config.yaml
+
+# Test navigation
+python src/navigation/test_navigation.py --model_path models/irl_model.pth
+```
+
+## Dataset Structure
+
+```
+data/
+├── expert_demonstrations/
+│   ├── trajectories/
+│   ├── sensor_data/
+│   └── annotations/
+├── simulation/
+│   ├── carla_data/
+│   └── airsim_data/
+└── real_world/
+    ├── camera/
+    ├── lidar/
+    └── gps/
+```
+
+## Configuration
+
+All configurations are stored in the `configs/` directory. Key configuration files:
+- `irl_config.yaml`: IRL training parameters
+- `adversarial_config.yaml`: Adversarial training settings
+- `sensor_config.yaml`: Sensor fusion parameters
+- `navigation_config.yaml`: Navigation controller settings
+
+## License
+
+MIT License - See LICENSE file for details

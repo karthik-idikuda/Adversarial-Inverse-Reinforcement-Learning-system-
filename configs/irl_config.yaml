@@ -1,0 +1,55 @@
+# Adversarial IRL Configuration for Autonomous Navigation
+
+# Training Parameters
+num_epochs: 100
+batch_size: 32
+learning_rate: 0.0001
+weight_decay: 0.00001
+
+# Model Architecture
+fusion_dim: 512
+action_dim: 3  # steering, throttle, brake
+hidden_dim: 256
+
+# Multimodal Data Parameters
+camera_size: [224, 224]
+max_lidar_points: 16384
+max_radar_detections: 64
+
+# Loss Weights
+reward_loss_weight: 1.0
+policy_loss_weight: 1.0
+adversarial_loss_weight: 0.1
+discriminator_loss_weight: 1.0
+
+# Adversarial Training Parameters
+adversarial_epsilon: 0.1
+adversarial_alpha: 0.01
+num_attack_steps: 10
+
+# Data Paths
+expert_data_path: "data/expert_demonstrations"
+validation_data_path: "data/validation"
+
+# Training Infrastructure
+num_workers: 4
+use_wandb: true
+project_name: "adversarial-irl-navigation"
+run_name: "adversarial_irl_multimodal"
+
+# Checkpointing
+checkpoint_dir: "checkpoints"
+save_every: 10
+
+# Evaluation
+eval_every: 5
+eval_episodes: 10
+
+# Navigation Parameters
+max_speed: 30.0  # m/s
+target_fps: 30
+safety_margin: 2.0  # meters
+
+# Simulation Parameters
+simulation_fps: 30
+simulation_duration: 60.0  # seconds

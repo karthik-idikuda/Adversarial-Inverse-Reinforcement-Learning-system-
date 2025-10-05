@@ -1,0 +1,3 @@
+[console_scripts]
+irl-navigate = navigation.navigation_controller:main
+irl-train = training.train_irl:main

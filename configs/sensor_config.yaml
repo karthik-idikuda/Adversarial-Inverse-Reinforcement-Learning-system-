@@ -1,0 +1,128 @@
+# Sensor Fusion Configuration for Multimodal IRL
+
+# Camera Configuration
+camera:
+  enabled: true
+  resolution: [224, 224]
+  channels: 3  # RGB
+  normalization:
+    mean: [0.485, 0.456, 0.406]  # ImageNet statistics
+    std: [0.229, 0.224, 0.225]
+  augmentation:
+    enabled: true
+    brightness: 0.2
+    contrast: 0.2
+    saturation: 0.2
+    hue: 0.1
+
+# LiDAR Configuration
+lidar:
+  enabled: true
+  max_points: 16384
+  coordinate_system: "velodyne"  # x: forward, y: left, z: up
+  filtering:
+    min_distance: 0.5
+    max_distance: 100.0
+    height_filter: [-3.0, 5.0]  # relative to sensor
+  normalization:
+    enabled: true
+    method: "z_score"
+
+# Radar Configuration
+radar:
+  enabled: true
+  max_detections: 64
+  feature_dimensions: 4  # range, azimuth, elevation, velocity
+  filtering:
+    min_range: 1.0
+    max_range: 150.0
+    velocity_threshold: 0.1  # m/s
+  coordinate_system: "automotive"  # ISO 8855
+
+# GPS/IMU Configuration
+gps_imu:
+  enabled: true
+  features:
+    - "latitude"
+    - "longitude" 
+    - "altitude"
+    - "heading"
+    - "pitch"
+    - "roll"
+    - "velocity_x"
+    - "velocity_y"
+    - "velocity_z"
+  normalization:
+    latitude: [-90.0, 90.0]
+    longitude: [-180.0, 180.0]
+    altitude: [-500.0, 5000.0]
+    heading: [0.0, 6.28]  # 0 to 2π
+    pitch: [-1.57, 1.57]  # -π/2 to π/2
+    roll: [-3.14, 3.14]   # -π to π
+    velocity_x: [-50.0, 50.0]
+    velocity_y: [-50.0, 50.0]
+    velocity_z: [-10.0, 10.0]
+
+# Fusion Parameters
+fusion:
+  method: "early_fusion"  # "early_fusion", "late_fusion", "attention_fusion"
+  attention_mechanism:
+    enabled: true
+    num_heads: 8
+    dropout: 0.1
+  
+  # Modality weights (for late fusion)
+  modality_weights:
+    camera: 0.4
+    lidar: 0.3
+    radar: 0.2
+    gps_imu: 0.1
+  
+  # Feature dimensions after fusion
+  output_dim: 512
+  
+  # Temporal integration
+  temporal_window: 5  # frames
+  temporal_fusion: "lstm"  # "lstm", "transformer", "conv1d"
+
+# Data Augmentation for Robustness
+augmentation:
+  enabled: true
+  
+  # Noise injection
+  gaussian_noise:
+    camera: 0.01
+    lidar: 0.02
+    radar: 0.05
+    gps_imu: 0.001
+  
+  # Dropout simulation (sensor failure)
+  modality_dropout:
+    probability: 0.1
+    single_modality_only: false
+  
+  # Temporal augmentation
+  temporal_shift: 2  # frames
+  temporal_dropout: 0.05
+
+# Quality Control
+quality_control:
+  enabled: true
+  
+  # Sensor health monitoring
+  health_checks:
+    camera_brightness: [10, 245]  # pixel intensity range
+    lidar_density: 1000  # minimum points per frame
+    radar_detections: 5  # minimum detections
+    gps_accuracy: 10.0  # meters
+  
+  # Outlier detection
+  outlier_detection:
+    method: "isolation_forest"
+    contamination: 0.05
+  
+  # Data validation
+  validation:
+    range_checks: true
+    consistency_checks: true
+    temporal_coherence: true

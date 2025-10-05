@@ -1,0 +1,54 @@
+# Navigation Controller Configuration
+
+# Vehicle Parameters
+max_speed: 30.0  # m/s (108 km/h)
+max_acceleration: 5.0  # m/s²
+max_deceleration: 8.0  # m/s²
+max_steering_angle: 0.52  # radians (~30 degrees)
+
+# Control Parameters
+target_fps: 30
+control_frequency: 50  # Hz
+prediction_horizon: 2.0  # seconds
+
+# Safety Parameters
+safety_margin: 2.0  # meters
+emergency_brake_threshold: 0.8  # seconds to collision
+max_steering_rate: 1.0  # rad/s
+max_throttle_rate: 2.0  # per second
+max_brake_rate: 5.0  # per second
+
+# Sensor Configuration
+camera:
+  resolution: [224, 224]
+  fov: 90  # degrees
+  framerate: 30
+  
+lidar:
+  max_points: 16384
+  max_range: 100.0  # meters
+  min_range: 0.5  # meters
+  
+radar:
+  max_detections: 64
+  max_range: 150.0  # meters
+  angular_resolution: 1.0  # degrees
+  
+gps:
+  update_rate: 10  # Hz
+  accuracy: 0.1  # meters
+
+# Path Planning
+waypoint_distance: 10.0  # meters
+look_ahead_distance: 20.0  # meters
+path_smoothing: true
+
+# Performance Monitoring
+log_frequency: 1.0  # seconds
+metrics_window_size: 100
+performance_threshold: 20.0  # minimum FPS
+
+# Failsafe Parameters
+failsafe_timeout: 1.0  # seconds
+manual_override_enabled: true
+emergency_stop_enabled: true
