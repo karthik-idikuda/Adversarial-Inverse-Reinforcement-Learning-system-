@@ -1,76 +1,81 @@
-<div align="center">
+# Inverse Reinforcement Learning with Adversarial Multimodal Data for Autonomous Navigation
 
-![Header](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDgwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMGYyMDI3IiAvPgogICAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzIwM2E0MyIgLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMmM1MzY0IiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9Imdsb3ciIHg9Ii0yMCUiIHk9Ii0yMCUiIHdpZHRoPSIxNDAlIiBoZWlnaHQ9IjE0MCUiPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI2IiByZXN1bHQ9ImJsdXIiIC8+CiAgICAgIDxmZUNvbXBvc2l0ZSBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJibHVyIiBvcGVyYXRvcj0ib3ZlciIgLz4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiByeD0iMTUiIHJ5PSIxNSIvPgogIAogIDx0ZXh0IHg9IjUwJSIgeT0iNDUlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjQ2IiBmaWxsPSIjMDBlNWZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWx0ZXI9InVybCgjZ2xvdykiIHN0eWxlPSJ0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlOyBsZXR0ZXItc3BhY2luZzogNXB4OyI+CiAgICBBZHZlcnNhcmlhbCBJbnZlcnNlIFJlLi4uCiAgPC90ZXh0PgogIAogIDx0ZXh0IHg9IjUwJSIgeT0iNzAlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJsZXR0ZXItc3BhY2luZzogM3B4OyBvcGFjaXR5OiAwLjg7Ij4KICAgIFBST1BSSUVUQVJZIFBZVEhPTiBURUNITk9MT0dZCiAgPC90ZXh0PgoKICA8IS0tIEFuaW1hdGVkIGVsZW1lbnRzIC0tPgogIDxjaXJjbGUgY3g9IjE1MCIgY3k9IjE1MCIgcj0iNCIgZmlsbD0iIzAwZTVmZiIgZmlsdGVyPSJ1cmwoI2dsb3cpIj4KICAgIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9ImN4IiB2YWx1ZXM9IjE1MDsgNjUwOyAxNTAiIGR1cj0iN3MiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPgogIDwvY2lyY2xlPgogIDxjaXJjbGUgY3g9IjY1MCIgY3k9IjUwIiByPSIzIiBmaWxsPSIjMDBlNWZmIiBmaWx0ZXI9InVybCgjZ2xvdykiPgogICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iY3giIHZhbHVlcz0iNjUwOyAxNTA7IDY1MCIgZHVyPSI2cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+CiAgPC9jaXJjbGU+Cjwvc3ZnPg==)
+## Overview
 
-<br/>
+This project implements an advanced autonomous navigation system that combines Inverse Reinforcement Learning (IRL) with adversarial training on multimodal sensor data. The system learns optimal driving behaviors from expert demonstrations while being robust to adversarial attacks and sensor noise.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Language-Python-00e5ff?style=for-the-badge&logo=probot&logoColor=black" alt="Language" />
-  <img src="https://img.shields.io/badge/Files-586-203a43?style=for-the-badge&logo=files&logoColor=00e5ff" alt="Files" />
-  <img src="https://img.shields.io/badge/License-PROPRIETARY-ff0000?style=for-the-badge&logo=law&logoColor=white" alt="License" />
-</p>
+## Key Features
 
-*Exclusive Neural & Cognitive Architecture developed by Karthik Idikuda.*
+- **Inverse Reinforcement Learning**: Learn reward functions from expert driving demonstrations
+- **Adversarial Training**: Robust learning against adversarial perturbations
+- **Multimodal Fusion**: Integration of camera, LiDAR, radar, and GPS data
+- **Real-time Navigation**: Efficient path planning and control
+- **Safety Mechanisms**: Built-in safety checks and fallback systems
 
-</div>
+## Architecture
 
----
-
-## Technical Synopsis
-
-> Reinforcement learning agent that learns complex behaviors from expert demos.
-
-Welcome to **Adversarial Inverse Reinforcement Learning system **. This repository contains proprietary source code engineered by Karthik Idikuda. The architecture leverages deep integration techniques tailored specifically for this project's requirements, heavily optimized for execution efficiency.
-
-<br/>
-
-## Internal System Engineering
-
-The internal blueprint below dynamically represents the specific components and data execution flow identified within this repository.
-
-```mermaid
-graph TD;
-    A[Data Ingestion] -->|Raw Data| B(Preprocessing Pipeline);
-    B --> C{Model Training & Inference};
-    C -->|Predictions| D[Analytics Dashboard];
-    C -.->|Weights & Biases| E[(Model Registry)];
-    
-    classDef primary fill:#0f2027,stroke:#ff007f,stroke-width:2px,color:#fff;
-    classDef secondary fill:#203a43,stroke:#b0bec5,stroke-width:1px,color:#fff;
-    classDef database fill:#2c5364,stroke:#ff007f,stroke-width:2px,color:#fff;
-    
-    class A,D primary;
-    class B,C secondary;
-    class E database;
+```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   Sensor Data   │────│  Multimodal      │────│   IRL Agent     │
+│ (Cam/LiDAR/GPS) │    │     Fusion       │    │                 │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+         │                        │                       │
+         │              ┌──────────────────┐              │
+         └──────────────│  Adversarial     │──────────────┘
+                        │    Training      │
+                        └──────────────────┘
+                                 │
+                        ┌──────────────────┐
+                        │   Navigation     │
+                        │    Controller    │
+                        └──────────────────┘
 ```
 
-<br/>
+## Installation
 
-## Proprietary Specifications
+```bash
+pip install -r requirements.txt
+```
 
-| Attribute | Implementation Detail |
-|:---|:---|
-| **Core Technology** | `Python` |
-| **System Scale** | `586 Identifiable Resource Nodes` |
-| **Execution Tier** | `High-Performance / Latency Optimized` |
-| **Intellectual Property** | `Strictly Confidential & Proprietary` |
+## Quick Start
 
-<br/>
+```bash
+# Train the IRL model
+python src/training/train_irl.py --config configs/irl_config.yaml
 
-## ⚠️ STRICT LEGAL WARNING & LICENSE
+# Run adversarial training
+python src/training/adversarial_training.py --config configs/adversarial_config.yaml
 
-**PROPRIETARY AND CONFIDENTIAL**
+# Test navigation
+python src/navigation/test_navigation.py --model_path models/irl_model.pth
+```
 
-This software and all associated documentation are the exclusive property of **Karthik Idikuda**. 
+## Dataset Structure
 
-- **NO PERMISSION IS GRANTED** to use, copy, modify, merge, publish, distribute, sublicense, or sell copies of this software without explicit, written consent from the author.
-- **UNAUTHORIZED USE WILL RESULT IN SEVERE LEGAL ACTION.** Any individual or organization found using, referencing, or deploying this code without paying the required licensing fees will face immediate litigation, financial penalties, and potentially criminal prosecution ("jail time") where applicable by law.
-- **TO OBTAIN A LEGAL LICENSE**, you must directly contact Karthik Idikuda to negotiate payment terms.
+```
+data/
+├── expert_demonstrations/
+│   ├── trajectories/
+│   ├── sensor_data/
+│   └── annotations/
+├── simulation/
+│   ├── carla_data/
+│   └── airsim_data/
+└── real_world/
+    ├── camera/
+    ├── lidar/
+    └── gps/
+```
 
-*By viewing this repository, you agree to these strict proprietary terms.*
+## Configuration
 
----
-<div align="center">
-  <br/>
-  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=600&size=20&pause=1000&color=00e5ff&center=true&vCenter=true&width=535&lines=Engineered+by+Karthik+Idikuda;Strictly+Proprietary+Technology;Unauthorized+Use+Prohibited" alt="Typing SVG" />
-</div>
+All configurations are stored in the `configs/` directory. Key configuration files:
+- `irl_config.yaml`: IRL training parameters
+- `adversarial_config.yaml`: Adversarial training settings
+- `sensor_config.yaml`: Sensor fusion parameters
+- `navigation_config.yaml`: Navigation controller settings
+
+## License
+
+MIT License - See LICENSE file for details
+# Adversarial-Inverse-Reinforcement-Learning-system-
